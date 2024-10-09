@@ -1,0 +1,24 @@
+<!-- <div [class.status]="currentStatus === 'offline'"> Permite añadir una sola clase dinamicamente-->
+<!-- Como no se puede poner guión, se coloca entre corchetes -->
+<div
+  [class]="{
+    status: true,
+    'status-offline': currentStatus === 'offline',
+    'status-online': currentStatus === 'online',
+    'status-unknown': currentStatus === 'unknown'
+  }"
+  [style]="{
+    'font-size': '1em',
+  }"
+>
+  @if (currentStatus === 'online') {
+  <p>Servers are online</p>
+  <p>All systems are operational.</p>
+  } @else if (currentStatus === 'offline') {
+  <p>Servers are offline</p>
+  <p>Functionality should be restored soon.</p>
+  } @else {
+  <p>Server status is unknown</p>
+  <p>Fetching server status failed.</p>
+  }
+</div>

@@ -1,0 +1,30 @@
+<!-- <form (ngSubmit)="onSubmit(titleInput.value, textInput.value, form)" #form> -->
+<form (ngSubmit)="onSubmit(titleInput.value, textInput.value)" #form>
+  <app-control label="Title">
+    <!-- <label for="title">Request</label> -->
+    <!-- template variable #titleInput usar este metodo en vez del two-way binding es más eficiente porque no estás constantemente escuchando -->
+    <input type="text" name="title" id="title" #titleInput #input />
+    <!-- #input es un template variable que se usa en controls -->
+  </app-control>
+  <!-- Se puede colocar un template variable a los componentes y puedes acceder a sus atributos y funciones -->
+  <app-control label="Request">
+    <!-- <label for="title">Request</label> -->
+    <textarea
+      type="text"
+      name="request"
+      id="request"
+      rows="3"
+      #textInput
+      #input
+    ></textarea>
+  </app-control>
+  <p>
+    <!-- Se puede colocar un template variable a los componentes y puedes acceder a sus atributos y funciones -->
+    <button appButton>
+      Submit
+      <span ngProjectAs="icon">⌲</span>
+    </button>
+    <!-- <span> Submit </span>
+      <span class="icon"> ⌲ </span> -->
+  </p>
+</form>
